@@ -11,6 +11,7 @@ To run the tests:
 Stand up your favorite kind of database (and ideally it would be in a form that would be runnable by us, via something like docker-compose).
 
 **Solution:**
+
 Using Postgres 13 image - added health check to guarantee that the containers that depend on it will start properly
 
 ## The Task (Part 2):
@@ -25,7 +26,7 @@ Don't hesitate to use any tools/tricks you know to load data quickly and easily!
 
 **Solution**
 
-The solution can be found in the `starlink/transform_data.py` file. Read the data, transform it and insert it into the postgres database container.
+The solution can be found in the `starlink/transform_data.py` file. It reads the data, transforms it and inserts it into the postgres database container.
 
 Both `load_starlink_data` and `transform_starlink_historical_data` are being tested.
 
