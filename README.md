@@ -39,7 +39,7 @@ Write a query to fetch the last known position of a satellite (by ID), given a t
     select * 
     from starlink_data 
     where 
-        id = '5eed7715096e59000698579e' and 
+        id = '$id' and 
         creation_date <= '$timeT'
     order by creation_date desc 
     limit 1;
