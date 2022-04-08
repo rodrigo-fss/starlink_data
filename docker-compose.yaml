@@ -1,0 +1,25 @@
+version: '3'
+
+services:  
+  postgres:
+    container_name: postgres
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: local
+      POSTGRES_DB: local
+    ports: [5432:5432]
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      interval: 5s
+      retries: 5
+    restart: always
+  
+  python:
+    build:
+      context: .
+    ports: [80:80]
+    volumes:
+      - ./:/usr/src/app
+    depends_on: 
+      - postgres
