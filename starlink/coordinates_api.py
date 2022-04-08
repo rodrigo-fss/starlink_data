@@ -1,4 +1,3 @@
-from opcode import HAVE_ARGUMENT
 import psycopg2
 from haversine import haversine
 from flask import Flask, request
@@ -7,10 +6,12 @@ app = Flask(__name__)
 
 
 def _get_db_connection():
-    conn = psycopg2.connect(host="postgres",
-                            database="local",
-                            user="postgres",
-                            password="local")
+    conn = psycopg2.connect(
+        host="postgres",
+        database="local",
+        user="postgres",
+        password="local"
+    )
     return conn
 
 
@@ -18,12 +19,13 @@ def _get_closest_distance(db_row: tuple, received_coordinates: tuple, previous_c
     '''Receives a row and compare it's distance with the previous closest,
     if the new one has a shorter distance, returns it as the new closest'''
 
-    # The distance will be the 4th item on the tuple
-    previous_closest_distance = previous_closest_row[4]
     db_coordinates = (db_row[2], db_row[3])
-
+    # Get the distance between the coordinates received from the user and the one inside the database
     distance = haversine(db_coordinates, received_coordinates)
 
+    # The distance will be the 4th item on the tuple
+    previous_closest_distance = previous_closest_row[4]
+    
     if distance < previous_closest_distance:
         # Append distance to the row data
         return db_row + (distance,)

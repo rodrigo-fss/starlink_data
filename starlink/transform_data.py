@@ -29,7 +29,7 @@ def transform_starlink_historical_data(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def insert_starlink_data(connection_string: str):
+def insert_starlink_data(connection_string: str, df: pd.DataFrame) -> None:
     engine = create_engine(connection_string)
     with engine.connect() as connection:
         df.to_sql(
@@ -46,6 +46,6 @@ def insert_starlink_data(connection_string: str):
 if __name__ == "__main__":
     df = load_starlink_data("../starlink_historical_data.json")
     df = transform_starlink_historical_data(df)
-    df = insert_starlink_data(
-        'postgresql://postgres:local@postgres:5432/local'
+    insert_starlink_data(
+        'postgresql://postgres:local@postgres:5432/local', df
     )
