@@ -72,7 +72,19 @@ at:
 would look like this:
 `http://localhost/closest_satelite?latitude=1493&longitude=-456&snapshop_time=2021-01-25%2012:00:00`
 
-The `_get_closest_distance` is being tested as well
+the API return should be:
+
+```
+Closest Satelite to (1493, -456) at (2022-01-01):
+
+ID: 5eed7715096e5900069856d7
+Creation Date: 2021-01-26 06:26:10
+Latitude: 52.59816607431316
+Longitude: 176
+Distance: 5523.055873862723
+```
+
+The `_get_closest_distance` function is being tested as well
 
 
 ## Possible improvements
