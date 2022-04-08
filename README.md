@@ -67,10 +67,10 @@ querying the closest satellite to:
 - longitude: -456
 
 at:
-- snapshot_time: 2021-01-25 2012:00:00
+- snapshot_time: 2021-01-25 12:00:00
 
 would look like this:
-`http://localhost/closest_satelite/?latitude=1493&longitude=-456&snapshop_time=2021-01-25%2012:00:00`
+`http://localhost/closest_satelite?latitude=1493&longitude=-456&snapshop_time=2021-01-25%2012:00:00`
 
 The `_get_closest_distance` is being tested as well
 
