@@ -62,10 +62,11 @@ All you need to do to spin up the database, insert the data into it and have the
 
 `make run`
 
-querying the closest satellite to 
+querying the closest satellite to:
 - latitude: 1493
 - longitude: -456
-at
+
+at:
 - snapshot_time: 2021-01-25 2012:00:00
 
 would look like this:
