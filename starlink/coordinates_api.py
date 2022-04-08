@@ -97,9 +97,10 @@ def get_closest_satelite():
         )
 
     return f'''
-    <p> ID: {nearest_row[0]}</p>
-    <p> Creation Date: {nearest_row[1]}</p>
-    <p> Latitude: {nearest_row[2]}</p>
-    <p> Longitude: {nearest_row[3]}</p> 
-    <p> Distance: {nearest_row[4]}</p>
+    <p><b> Closest Satelite to ({latitude}, {longitude}) at ({snapshot_time}): </b></p>
+    <p> ID: {nearest_row[0]}<br>
+        Creation Date: {nearest_row[1]}<br>
+        Latitude: {nearest_row[2]}<br>
+        Longitude: {nearest_row[3]}<br> 
+        <b>Distance</b>: {nearest_row[4]}</p>
     '''
